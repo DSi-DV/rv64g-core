@@ -1,0 +1,26 @@
+name: Vivado_CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  Vivado_CI:
+
+    runs-on: [make, vivado]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Simulate
+      shell: bash
+      run: |
+        git submodule update --init --recursive --depth 1
+        bash ./ci.sh
+
+    - name: Fail if Simulation Contains Fails
+      shell: bash
+      run: |
+        [[ -s temp_ci_issues ]] && exit 1 || exit 0

@@ -1,0 +1,44 @@
+# Coding Guide Lines
+- **always-comb:** Checks that there are no occurrences of `always @*`. Use `always_comb` instead.
+- **always-comb-blocking:** Checks that there are no occurrences of non-blocking assignment in combinational logic.
+- **always-ff-non-blocking:** Checks that blocking assignments are, at most, targeting locals in sequential logic.
+- **case-missing-default:** Checks that a default case-item is always defined unless the case statement has the `unique` qualifier.
+- **constraint-name-style:** Check that constraint names follow the lower_snake_case convention and end with _c.
+- **create-object-name-match:** Checks that the 'name' argument of `type_id::create()` matches the name of the variable to which it is assigned.
+- **enum-name-style:** Checks that enum type names follow a naming convention defined by a RE2 regular expression. The default regex pattern expects "lower_snake_case" with either a "_t" or "_e" suffix. Refer to https://github.com/chipsalliance/verible/tree/master/verilog/tools/lint#readme for more detail on verible regex patterns.
+- **explicit-begin:** Checks that a Verilog ``begin`` directive follows all if, else, always, always_comb, always_latch, always_ff, for, forever, foreach, while and initial statements.
+- **explicit-function-lifetime:** Checks that every function declared outside of a class is declared with an explicit lifetime (static or automatic).
+- **explicit-function-task-parameter-type:** Checks that every function and task parameter is declared with an explicit storage type.
+- **explicit-parameter-storage-type:** Checks that every `parameter` and `localparam` is declared with an explicit storage type.
+- **explicit-task-lifetime:** Checks that every task declared outside of a class is declared with an explicit lifetime (static or automatic).
+- **forbid-consecutive-null-statements:** Checks that there are no occurrences of consecutive null statements like `;;`
+- **forbid-defparam:** Do not use defparam.
+- **forbid-line-continuations:** Checks that there are no occurrences of `\` when breaking the string literal line. Use concatenation operator with braces instead.
+- **forbidden-macro:** Checks that no forbidden macro calls are used.
+- **generate-label:** Checks that every generate block statement is labeled.
+- **generate-label-prefix:** Checks that every generate block label starts with g_ or gen_.
+- **interface-name-style:** Checks that 'interface' names follow a naming convention defined by a RE2 regular expression. The default regex pattern expects "lower_snake_case" with a "_if" or "_e" suffix. Refer to https://github.com/chipsalliance/verible/tree/master/verilog/tools/lint#readme for more detail on regex patterns.
+- **invalid-system-task-function:** Checks that no forbidden system tasks or functions are used. These consist of the following functions: `$psprintf`, `$random`, and `$dist_*`. As well as non-LRM function `$srandom`.
+- **line-length:** Checks that all lines do not exceed the 100 chars maximum allowed length. 
+- **macro-name-style:** Checks that macro names conform to a naming convention defined by a RE2 regular expression. The default regex pattern expects "UPPER_SNAKE_CASE". Exceptions are made for UVM like macros, where macros named 'uvm_*' and 'UVM_*' follow "lower_snake_case" and "UPPER_SNAKE_CASE" naming conventions respectively. Refer to https://github.com/chipsalliance/verible/tree/master/verilog/tools/lint#readme for more detail on verible regex patterns.
+- **module-begin-block:** Checks that there are no begin-end blocks declared at the module level.
+- **module-filename:** If a module is declared, checks that at least one module matches the first dot-delimited component of the file name. Depending on configuration, it is also allowed to replace underscore with dashes in filenames.
+- **module-parameter:** Checks that module instantiations with more than one parameter are passed in as named parameters, rather than positional parameters.
+- **module-port:** Checks that module instantiations with more than one port are passed in as named ports, rather than positional ports.
+- **no-tabs:** Checks that no tabs are used. Spaces should be used instead of tabs. 
+- **no-trailing-spaces:** Checks that there are no trailing spaces on any lines.
+- **package-filename:** Checks that the package name matches the filename. Depending on configuration, it is also allowed to replace underscore with dashes in filenames.
+- **packed-dimensions-range-ordering:** Checks that packed dimension ranges are declare in little-endian (decreasing) order, e.g. `[N-1:0]`.
+- **parameter-name-style:** Checks that parameter and localparm names conform to a naming convention based on a choice of 'CamelCase', 'ALL_CAPS' and a user defined regex ORed together. Empty configurtaion: no style enforcement. Refer to https://github.com/chipsalliance/verible/tree/master/verilog/tools/lint#readme for more detail on verible regex patterns.
+- **plusarg-assignment:** Checks that plusargs are always assigned a value, by ensuring that plusargs are never accessed using the `$test$plusargs` system task.
+- **positive-meaning-parameter-name:** Checks that no parameter name starts with 'disable', using positive naming (starting with 'enable') is recommended.
+- **posix-eof:** Checks that the file ends with a newline.
+- **struct-union-name-style:** Checks that `struct` and `union` names use lower_snake_case naming convention and end with '_t'.
+- **suggest-parentheses:** Recommend extra parentheses around subexpressions where it helps readability.
+- **truncated-numeric-literal:** Checks that numeric literals are not longer than their stated bit-width to avoid undesired accidental truncation.
+- **typedef-enums:** Checks that a Verilog `enum` declaration is named using `typedef`.
+- **typedef-structs-unions:** Checks that a Verilog `struct` or `union` declaration is named using `typedef`.
+- **undersized-binary-literal:** Checks that the digits of binary literals for the configured bases match their declared width, i.e. has enough padding prefix zeros.
+- **unpacked-dimensions-range-ordering:** Checks that unpacked dimension ranges are declared in big-endian order `[0:N-1]`, and when an unpacked dimension range is zero-based `[0:N-1]`, the size is declared as `[N]` instead.
+- **v2001-generate-begin:** Checks that there are no generate-begin blocks inside a generate region.
+- **void-cast:** Checks that void casts do not contain certain function/method calls. 

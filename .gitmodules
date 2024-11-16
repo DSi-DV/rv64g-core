@@ -1,0 +1,6 @@
+[submodule "submodules/sv-genesis"]
+	path = submodules/sv-genesis
+	url = https://github.com/squared-studio/sv-genesis.git
+[submodule "submodules/documenter"]
+	path = submodules/documenter
+	url = https://github.com/squared-studio/documenter.git

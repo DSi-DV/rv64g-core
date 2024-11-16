@@ -1,0 +1,6 @@
+temp_*
+*.log
+*.pb
+*.jou
+xsim_dir
+*.vcd

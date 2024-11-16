@@ -1,0 +1,23 @@
+name: rtl_docs_check
+
+on: [push]
+
+jobs:
+  rtl_docs_check:
+    runs-on: [make, python]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Check docs
+      run: |
+        git submodule update --init --recursive --depth 1
+        make update_doc_list
+        git diff > temp_diff
+
+    - name: Fail if different
+      shell: bash
+      run: |
+        cat temp_diff
+        [[ -s temp_diff ]] && exit 1 || exit 0

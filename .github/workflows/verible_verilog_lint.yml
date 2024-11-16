@@ -1,0 +1,23 @@
+name: Verible_Verilog_Lint
+
+on:
+  push:
+    branches: []
+
+jobs:
+  Verible_Verilog_Lint:
+    runs-on: [make, verible]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Lint
+      shell: bash
+      run: |
+        git submodule update --init --recursive --depth 1
+        make verible_lint
+
+    - name: Fail if Lint Issue
+      shell: bash
+      run: |
+        [[ -s temp_lint_error ]] && exit 1 || exit 0

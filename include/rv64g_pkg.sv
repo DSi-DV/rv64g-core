@@ -392,7 +392,7 @@ package rv64g_pkg;
     logic [$clog2(NUM_REGS)-1:0] rs3;
 
     // The `imm` has multi-purpose such signed/unsigned immediate, shift, csr_addr, etc. based on
-    // the `func`. -------- imm:64 / {fm:4,pred:4,succ:4} / shamt:6 / {uimm:5,csr:12}
+    // the `func`. -------- imm:64 / {fm:4,pred:4,succ:4} / shamt:6 / {uimm:5,csr:12} / rm / {aq, rl}
     logic [XLEN-1:0] imm;
 
     // The `pc` hold's the physical address of the current instruction.

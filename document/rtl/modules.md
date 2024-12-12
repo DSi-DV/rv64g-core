@@ -2,6 +2,7 @@
 [`and_reduction`](and_reduction.md)
 [`branch_target_buffer`](branch_target_buffer.md)
 [`constant_compare`](constant_compare.md)
+[`demux`](demux.md)
 [`encoder`](encoder.md)
 [`fixed_priority_arbiter`](fixed_priority_arbiter.md)
 [`or_reduction`](or_reduction.md)
